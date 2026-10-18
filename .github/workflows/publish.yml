@@ -1,0 +1,75 @@
+name: build and publish repo
+
+# carLy is a port in the ios-port-ci sense: this repository supplies *what it ships* (the three
+# scripts in tools/, everything in packaging/) and realAndi/ios-port-ci supplies *how it gets
+# published* -- build orchestration, the APT index, GPG signing, the deploy to Pages. See that
+# repo's CONTRACT.md.
+#
+# A push to main that touches the tweak or its packaging republishes the Version in `control`,
+# with packaging/revision applied when it names that version ("1.0.0 1" -> 1.0.0-1); bump one or
+# the other to have Sileo offer an update. A tag push of v1.0.1 ships exactly 1.0.1, and refuses
+# to build if `control` says something else. Every previous version stays downloadable, so
+# rollback is a normal package operation.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - "Tweak/**"
+      - "Prefs/**"
+      - "packaging/**"
+      - "tools/**"
+      - "control"
+      - "Makefile"
+      - "carLy.plist"
+      - "assets/icon.png"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to build (blank = the Version in control)"
+        required: false
+
+# The reusable workflow needs these, and a caller cannot grant more than it has.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # A job that calls a reusable workflow is only `uses:`/`with:`/`secrets:` -- no steps of its
+  # own -- so everything below is inputs.
+  publish:
+    uses: realAndi/ios-port-ci/.github/workflows/publish.yml@v1
+    with:
+      package: com.andi.carly
+      origin: carLy
+      label: carLy
+      # Debian control format: the first line is the summary, continuation lines are indented by
+      # one space, and a lone " ." is a paragraph break. `|-` and not `|` -- a trailing newline
+      # would land a blank line in Release, which ends the stanza and orphans Date and every
+      # checksum below it.
+      description: |-
+        carLy
+         Synced lyrics and a customizable Now Playing screen for CarPlay, built
+         from source in this repository.
+         .
+         Spotify songs get Spotify's own lyrics through the Spotify app, Apple
+         Music songs get Apple's through the Music app, and everything else comes
+         from LRCLIB or lyrics saved in your own song files.
+      # tools/build-payload.sh builds with Theos and Xcode's iPhoneOS SDK: the arm64e slice has to
+      # come from Xcode's clang. It fetches the Theos commit pinned in tools/theos.pin itself, and
+      # signs with the system codesign, so nothing comes from Homebrew.
+      needs-macos: true
+      # Keeps the published key at the URL the depiction and README reference. Each port signs
+      # with its OWN key: reallyitsandi.com pins this fingerprint and refuses an index it cannot
+      # verify.
+      key-file: carly.gpg
+      # A tag push ships its own version; anything else discovers the one in `control`.
+      version: ${{ inputs.version || (startsWith(github.ref, 'refs/tags/v') && github.ref_name || '') }}
+      payload-paths: |
+        packaging/payload/
+    secrets:
+      GPG_KEY: ${{ secrets.CARLY_GPG_KEY }}
+      GPG_KEY_ID: ${{ secrets.CARLY_GPG_KEY_ID }}

@@ -1,0 +1,11 @@
+Package: com.andi.carly
+Name: carLy
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Synced lyrics and a customizable Now Playing screen for CarPlay.
+Maintainer: andi <tafilajandi@gmail.com>
+Author: andi
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader, firmware (>= 16.0)
+Conflicts: com.diffmusicplayer.carlyrics
+Replaces: com.diffmusicplayer.carlyrics

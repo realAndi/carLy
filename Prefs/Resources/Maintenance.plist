@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>Maintenance</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Lyrics Cache</string>
+			<key>footerText</key><string>Lyrics are kept on this iPhone so a song never has to be looked up twice.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSTitleValueCell</string>
+			<key>id</key><string>cachedSongs</string>
+			<key>label</key><string>Cached Songs</string>
+			<key>get</key><string>cl_cachedSongsSummary:</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>id</key><string>clearCache</string>
+			<key>label</key><string>Clear Lyrics Cache</string>
+			<key>buttonAction</key><string>cl_clearLyricsCache</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Backup</string>
+			<key>footerText</key><string>Saves every carLy setting to a file you can share or restore later.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>id</key><string>exportSettings</string>
+			<key>label</key><string>Export Settings…</string>
+			<key>buttonAction</key><string>cl_exportSettings</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>id</key><string>importSettings</string>
+			<key>label</key><string>Import Settings…</string>
+			<key>buttonAction</key><string>cl_importSettings</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Troubleshooting</string>
+			<key>footerText</key><string>Debug Logging writes what carLy is doing to a log file. Leave it off unless you are looking into a problem. Lyrics text is never written to the log.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>debugLogging</string>
+			<key>label</key><string>Debug Logging</string>
+			<key>key</key><string>debugLogging</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>viewLog</string>
+			<key>label</key><string>View Log</string>
+			<key>detail</key><string>CLLogViewController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>footerText</key><string>Restores every setting to its default. The lyrics cache is kept.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSButtonCell</string>
+			<key>id</key><string>resetAllSettings</string>
+			<key>label</key><string>Reset All Settings</string>
+			<key>buttonAction</key><string>cl_resetToDefaults</string>
+		</dict>
+	</array>
+</dict>
+</plist>

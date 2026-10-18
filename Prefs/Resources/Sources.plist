@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>Sources</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Lyrics Sources</string>
+			<key>footerText</key><string>Sources are tried in the order set under Source Order; the first one with synced lyrics wins, and plain text is used only when none has timed lines. Embedded Lyrics reads lyrics saved in your own song files (Apple Music library songs) and never uses the network. Apple Music Lyrics are Apple's own synced lyrics for Apple Music songs, fetched by the Music app with your account. Spotify Lyrics are Spotify's own synced lyrics for Spotify songs, fetched by the Spotify app with your account (restart Spotify once after installing). Spotify Cache reads lyrics Spotify already downloaded on this iPhone. LRCLIB is a free community database that needs no account.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>embeddedLyricsEnabled</string>
+			<key>label</key><string>Embedded Lyrics</string>
+			<key>key</key><string>embeddedLyricsEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>appleMusicLyricsEnabled</string>
+			<key>label</key><string>Apple Music Lyrics</string>
+			<key>key</key><string>appleMusicLyricsEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>spotifyLyricsEnabled</string>
+			<key>label</key><string>Spotify Lyrics</string>
+			<key>key</key><string>spotifyLyricsEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>spotifyCacheEnabled</string>
+			<key>label</key><string>Spotify Cache</string>
+			<key>key</key><string>spotifyCacheEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>lrclibEnabled</string>
+			<key>label</key><string>LRCLIB</string>
+			<key>key</key><string>lrclibEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>customEndpointEnabled</string>
+			<key>label</key><string>Custom Endpoint</string>
+			<key>key</key><string>customEndpointEnabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>providerOrder</string>
+			<key>label</key><string>Source Order</string>
+			<key>detail</key><string>CLProviderOrderController</string>
+		</dict>
+
+		<!-- The group and its three rows are removed by CLSourcesListController while the Custom
+		     Endpoint switch is off, and inserted back (contiguous, after customEndpointEnabled)
+		     when it is turned on. -->
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>customEndpointGroup</string>
+			<key>label</key><string>Custom Endpoint</string>
+			<key>footerText</key><string>{artist}, {title}, {album} and {duration} in the URL are replaced with the current song. The header is sent only to this address and never logged.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSEditTextCell</string>
+			<key>id</key><string>customEndpointURL</string>
+			<key>label</key><string>URL</string>
+			<key>key</key><string>customEndpointURL</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string></string>
+			<key>placeholder</key><string>https://example.com/lyrics?artist={artist}&amp;title={title}</string>
+			<key>isURL</key><true/>
+			<key>autoCaps</key><string>none</string>
+			<key>autoCorrection</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSEditTextCell</string>
+			<key>id</key><string>customEndpointHeaderName</string>
+			<key>label</key><string>Header Name</string>
+			<key>key</key><string>customEndpointHeaderName</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string></string>
+			<key>placeholder</key><string>X-Api-Key</string>
+			<key>autoCaps</key><string>none</string>
+			<key>autoCorrection</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSecureEditTextCell</string>
+			<key>id</key><string>customEndpointHeaderValue</string>
+			<key>label</key><string>Header Value</string>
+			<key>key</key><string>customEndpointHeaderValue</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string></string>
+			<key>placeholder</key><string>Optional</string>
+			<key>autoCaps</key><string>none</string>
+			<key>autoCorrection</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Network</string>
+			<key>footerText</key><string>Offline Only never connects to the internet (Spotify Lyrics included); only lyrics already on this iPhone are shown. When no lyrics are found for a song, carLy waits the chosen time before looking again.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>offlineOnly</string>
+			<key>label</key><string>Offline Only</string>
+			<key>key</key><string>offlineOnly</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>PSListItemsController</string>
+			<key>id</key><string>cacheNegativeHours</string>
+			<key>label</key><string>Retry Missing Lyrics After</string>
+			<key>key</key><string>cacheNegativeHours</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>24</integer>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+			<key>validTitles</key>
+			<array>
+				<string>1 hour</string>
+				<string>6 hours</string>
+				<string>1 day</string>
+				<string>3 days</string>
+				<string>1 week</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>1</integer>
+				<integer>6</integer>
+				<integer>24</integer>
+				<integer>72</integer>
+				<integer>168</integer>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

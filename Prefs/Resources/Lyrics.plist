@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>Lyrics</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Text</string>
+			<key>footerText</key><string>Size is in points. Changes here show in the car right away. Where the lyrics go is chosen under Layout.</string>
+		</dict>
+		<dict>
+			<!-- The family list is filled at runtime by CLLyricsListController (UIFont.familyNames);
+			     "" means the system font. -->
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>PSListItemsController</string>
+			<key>id</key><string>lyricsFontFamily</string>
+			<key>label</key><string>Font</string>
+			<key>key</key><string>lyricsFontFamily</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string></string>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+			<key>validTitles</key>
+			<array>
+				<string>System</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>lyricsFontSize</string>
+			<key>label</key><string>Size</string>
+			<key>key</key><string>lyricsFontSize</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><real>24</real>
+			<key>min</key><real>14</real>
+			<key>max</key><real>60</real>
+			<key>showValue</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>PSListItemsController</string>
+			<key>id</key><string>lyricsFontWeight</string>
+			<key>label</key><string>Weight</string>
+			<key>key</key><string>lyricsFontWeight</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>600</integer>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+			<key>validTitles</key>
+			<array>
+				<string>Thin</string>
+				<string>Extra Light</string>
+				<string>Light</string>
+				<string>Regular</string>
+				<string>Medium</string>
+				<string>Semibold</string>
+				<string>Bold</string>
+				<string>Extra Bold</string>
+				<string>Black</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>100</integer>
+				<integer>200</integer>
+				<integer>300</integer>
+				<integer>400</integer>
+				<integer>500</integer>
+				<integer>600</integer>
+				<integer>700</integer>
+				<integer>800</integer>
+				<integer>900</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSegmentCell</string>
+			<key>id</key><string>lyricsAlignment</string>
+			<key>label</key><string>Alignment</string>
+			<key>key</key><string>lyricsAlignment</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+			<key>validTitles</key>
+			<array>
+				<string>Left</string>
+				<string>Center</string>
+				<string>Right</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Colors</string>
+			<key>footerText</key><string>The line being sung uses Current Line. The lines around it use Other Lines, faded by the opacity.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>CLColorPickerController</string>
+			<key>id</key><string>lyricsCurrentColor</string>
+			<key>label</key><string>Current Line</string>
+			<key>key</key><string>lyricsCurrentColor</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string>#FFFFFF</string>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>CLColorPickerController</string>
+			<key>id</key><string>lyricsNextColor</string>
+			<key>label</key><string>Other Lines</string>
+			<key>key</key><string>lyricsNextColor</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string>#FFFFFF</string>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>lyricsNextAlpha</string>
+			<key>label</key><string>Other Lines Opacity</string>
+			<key>key</key><string>lyricsNextAlpha</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><real>0.45</real>
+			<key>min</key><real>0.0</real>
+			<key>max</key><real>1.0</real>
+			<key>showValue</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>lyricsBackgroundGroup</string>
+			<key>label</key><string>Background</string>
+			<key>footerText</key><string>Puts a tinted panel behind the lyrics so they stay readable over bright album art.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSegmentCell</string>
+			<key>id</key><string>lyricsBackground</string>
+			<key>label</key><string>Background</string>
+			<key>key</key><string>lyricsBackground</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+			<key>validTitles</key>
+			<array>
+				<string>None</string>
+				<string>Pill</string>
+				<string>Solid</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>detail</key><string>CLColorPickerController</string>
+			<key>id</key><string>lyricsBackgroundColor</string>
+			<key>label</key><string>Color</string>
+			<key>key</key><string>lyricsBackgroundColor</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string>#000000</string>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>lyricsBackgroundAlpha</string>
+			<key>label</key><string>Opacity</string>
+			<key>key</key><string>lyricsBackgroundAlpha</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><real>0.35</real>
+			<key>min</key><real>0.0</real>
+			<key>max</key><real>1.0</real>
+			<key>showValue</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Behavior</string>
+			<key>footerText</key><string>Some songs only have lyrics without timing; Show Unsynced Lyrics shows them as plain text. The note appears while nothing is being sung; turned off, gaps stay blank, including the notes Spotify puts in its own lyrics.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>lyricsAnimations</string>
+			<key>label</key><string>Animate Line Changes</string>
+			<key>key</key><string>lyricsAnimations</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>lyricsShowPlainWhenUnsynced</string>
+			<key>label</key><string>Show Unsynced Lyrics</string>
+			<key>key</key><string>lyricsShowPlainWhenUnsynced</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>lyricsShowNoteOnGap</string>
+			<key>label</key><string>Show a Note During Gaps</string>
+			<key>key</key><string>lyricsShowNoteOnGap</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Timing</string>
+			<key>footerText</key><string>In milliseconds. If lines appear before they are sung, move the slider left. If they appear after, move it right. Spotify and Apple Music time their own lyrics to their own audio, so they have a separate slider; the other one moves LRCLIB, custom and embedded lyrics.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>serviceLyricsOffsetMs</string>
+			<key>label</key><string>Spotify &amp; Apple Music</string>
+			<key>key</key><string>serviceLyricsOffsetMs</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>min</key><real>-2000</real>
+			<key>max</key><real>2000</real>
+			<key>isSegmented</key><true/>
+			<key>segmentCount</key><integer>41</integer>
+			<key>showValue</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>lyricsOffsetMs</string>
+			<key>label</key><string>Other Sources</string>
+			<key>key</key><string>lyricsOffsetMs</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>min</key><real>-2000</real>
+			<key>max</key><real>2000</real>
+			<key>isSegmented</key><true/>
+			<key>segmentCount</key><integer>41</integer>
+			<key>showValue</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+	</array>
+</dict>
+</plist>

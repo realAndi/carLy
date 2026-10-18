@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>Layout</string>
+	<key>items</key>
+	<array>
+		<!-- Every value on this page is staged by CLLayoutListController: the preview in the table
+		     header shows it, nothing reaches the car until Apply, so no row carries PostNotification.
+		     The layout itself is picked with the cards in the header (no row for lyricsMode here).
+		     Keys and defaults must match Tweak/Util/CLPrefsKeys.h. Rows that only make sense for
+		     some staged values (artworkCornerRadius, backdropOpacity, accentColor) are inserted and
+		     removed by id by the controller. -->
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>layoutGroup</string>
+			<key>footerText</key><string>Lyrics Side puts the lyrics left or right of the player in Side by Side (and in No Artwork on short screens). Nothing changes in the car until you tap Apply. Cancel puts everything back the way it was.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSegmentCell</string>
+			<key>id</key><string>lyricsSide</string>
+			<key>label</key><string>Lyrics Side</string>
+			<key>key</key><string>lyricsSide</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>validTitles</key>
+			<array>
+				<string>Left</string>
+				<string>Right</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>1</integer>
+				<integer>0</integer>
+			</array>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>fullScreenGroup</string>
+			<key>label</key><string>Full Screen Lyrics</string>
+			<key>footerText</key><string>Adds a microphone next to shuffle and repeat. Tap it for lyrics across the whole screen with the song, a progress line, and previous, play/pause and next under them. Works with every layout, Off included, and on every screen size, even where no split layout fits. Tap the preview above to see it.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>showLyricsButton</string>
+			<key>label</key><string>Lyrics Button</string>
+			<key>key</key><string>showLyricsButton</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>playerGroup</string>
+			<key>label</key><string>Player</string>
+			<key>footerText</key><string>No Artwork uses CarPlay's compact player: a smaller title and smaller buttons, no album cover. On short screens it sits beside the lyrics instead of below them. The playback speed button (1×) appears next to shuffle and repeat for podcasts and audiobooks. Corner Radius rounds the album cover, in points.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>showAlbum</string>
+			<key>label</key><string>Show Album Name</string>
+			<key>key</key><string>showAlbum</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSegmentCell</string>
+			<key>id</key><string>progressBarStyle</string>
+			<key>label</key><string>Progress Bar</string>
+			<key>key</key><string>progressBarStyle</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>validTitles</key>
+			<array>
+				<string>Show</string>
+				<string>Hide</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>2</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>hidePlaybackRateButton</string>
+			<key>label</key><string>Hide Playback Speed Button</string>
+			<key>key</key><string>hidePlaybackRateButton</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>artworkCornerRadius</string>
+			<key>label</key><string>Corner Radius</string>
+			<key>key</key><string>artworkCornerRadius</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><real>12</real>
+			<key>min</key><real>0</real>
+			<key>max</key><real>40</real>
+			<key>showValue</key><true/>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>backgroundGroup</string>
+			<key>label</key><string>Background</string>
+			<key>footerText</key><string>CarPlay blurs the album cover across the whole screen behind the player. Plain uses a dark background instead. Brightness is a fraction: 1 is CarPlay's own look.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSegmentCell</string>
+			<key>id</key><string>backdropStyle</string>
+			<key>label</key><string>Background</string>
+			<key>key</key><string>backdropStyle</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>0</integer>
+			<key>validTitles</key>
+			<array>
+				<string>Album Art</string>
+				<string>Plain</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSliderCell</string>
+			<key>id</key><string>backdropOpacity</string>
+			<key>label</key><string>Brightness</string>
+			<key>key</key><string>backdropOpacity</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><real>1.0</real>
+			<key>min</key><real>0.0</real>
+			<key>max</key><real>1.0</real>
+			<key>showValue</key><true/>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>accentGroup</string>
+			<key>label</key><string>Accent</string>
+			<key>footerText</key><string>Tints the progress bar and the artist name, in the player and in full-screen lyrics. Leave the color unset to keep CarPlay's tint.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>tintFromArtwork</string>
+			<key>label</key><string>Use Album Colors</string>
+			<key>key</key><string>tintFromArtwork</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>id</key><string>accentColor</string>
+			<key>label</key><string>Accent Color</string>
+			<key>key</key><string>accentColor</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><string></string>
+			<key>detail</key><string>CLColorPickerController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>toolbarGroup</string>
+			<key>label</key><string>Top Bar</string>
+			<key>footerText</key><string>Hides the queue button in the bar above the player (Spotify calls it Queue &amp; Jam).</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>hideQueueButton</string>
+			<key>label</key><string>Hide Queue Button</string>
+			<key>key</key><string>hideQueueButton</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>Apps</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>footerText</key><string>Show lyrics for whatever app is playing. When off, only the apps below are used.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>id</key><string>allApps</string>
+			<key>label</key><string>All Apps</string>
+			<key>key</key><string>allApps</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><false/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<!-- One PSStaticTextCell row per enabled app is inserted after this group by
+		     CLAppsListController; the whole group (rows and Choose Apps…) is left out while All
+		     Apps is on. -->
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>id</key><string>appsGroup</string>
+			<key>label</key><string>Apps</string>
+			<key>footerText</key><string>Swipe left to remove an app. Lyrics can show for Apple Music and for apps whose CarPlay player is CarPlay's standard one: Spotify, Audible, podcast apps and most other audio apps.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>addApp</string>
+			<key>label</key><string>Choose Apps…</string>
+			<key>detail</key><string>CLAppPickerController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

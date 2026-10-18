@@ -1,0 +1,4 @@
+#!/bin/sh
+# prerm: nothing to undo. The tweak's files go with the package; its settings and caches are left,
+# so a reinstall picks up where it left off.
+exit 0

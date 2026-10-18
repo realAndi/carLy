@@ -1,0 +1,1 @@
+{ Filter = { Bundles = ( "com.apple.CarPlayTemplateUIHost", "com.apple.Music", "com.spotify.client" ); }; }

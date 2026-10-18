@@ -1,0 +1,211 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.1",
+  "tintColor": "#5E4FC2",
+  "tabs": [
+    {
+      "class": "DepictionStackView",
+      "tabname": "Details",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "Time-synced lyrics on CarPlay's own Now Playing screen. carLy changes the player the car already shows instead of adding an app you have to switch to, so the lyrics are where you already look, next to the controls you already use."
+        },
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 10,
+          "itemSize": "{320, 120}",
+          "screenshots": [
+            {
+              "url": "https://raw.githubusercontent.com/realAndi/carLy/main/screenshots/carplay-side-by-side.png",
+              "accessibilityText": "Side by Side on a widescreen CarPlay display: the player with its artwork, and the synced lyrics beside it"
+            },
+            {
+              "url": "https://raw.githubusercontent.com/realAndi/carLy/main/screenshots/carplay-full-screen.png",
+              "accessibilityText": "Full-screen lyrics on a widescreen CarPlay display, with the song and the controls underneath"
+            }
+          ]
+        },
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 10,
+          "itemSize": "{197, 120}",
+          "screenshots": [
+            {
+              "url": "https://raw.githubusercontent.com/realAndi/carLy/main/screenshots/carplay-small-screen.png",
+              "accessibilityText": "Full-screen lyrics on a smaller CarPlay display"
+            }
+          ]
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Beside the player, or full screen",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "Side by Side puts the player in a column and the lyrics next to it, on either side. No Artwork drops the cover for more lyrics. On any screen, the microphone in the player's button row opens the lyrics across the whole display, with the song and previous / play-pause / next under them. Built for small widescreen head units first: every layout is worked out from CarPlay's own measurements, not guessed."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Spotify's own lyrics",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "Spotify songs get the lyrics Spotify itself shows, fetched by the Spotify app with your account and handed to the CarPlay screen. Nothing to sign in to and no keys: carLy reuses the session Spotify already has, and that session never leaves the Spotify app."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Apple Music, and your own files",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "Apple Music songs get Apple's synced lyrics, fetched by the Music app. Songs in your library can use lyrics saved in the file itself (LRC, SYLT, USLT) or a sidecar `.lrc`. Everything else comes from LRCLIB, a free community database, or an address of your own."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Made to fit",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "Settings has a live preview of every layout on three screen shapes. Fonts, weights, colours, alignment, a background behind the lines, which apps show lyrics, the order sources are tried in, and timing: one offset for Spotify's and Apple's lyrics and another for everything else."
+        },
+        {
+          "class": "DepictionScreenshotsView",
+          "itemCornerRadius": 10,
+          "itemSize": "{160, 347}",
+          "screenshots": [
+            {
+              "url": "https://raw.githubusercontent.com/realAndi/carLy/main/screenshots/settings-layout.png",
+              "accessibilityText": "Layout settings with a live preview of the CarPlay screen"
+            },
+            {
+              "url": "https://raw.githubusercontent.com/realAndi/carLy/main/screenshots/settings-lyrics.png",
+              "accessibilityText": "Lyrics settings: font, weight, alignment, colours, background"
+            }
+          ]
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "At a glance",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Version",
+          "text": "@VERSION@"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Package",
+          "text": "com.andi.carly"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Apps",
+          "text": "Spotify, Apple Music, most CarPlay audio apps"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Sources",
+          "text": "Spotify, Apple Music, embedded, LRCLIB, custom"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "Network",
+          "text": "Only the lyrics sources you enable"
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Source and write-up",
+          "action": "https://github.com/realAndi/carLy",
+          "openExternal": true
+        }
+      ]
+    },
+    {
+      "class": "DepictionStackView",
+      "tabname": "Requires",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "- A jailbroken iPhone on iOS 17, rootless (Dopamine). Built and tested on an iPhone 15 Pro with iOS 17.3; iOS 16 should work but has not been tried.\n- ElleKit (or another substrate) and PreferenceLoader.\n- CarPlay: a car or Apple's CarPlay Simulator. Lyrics show on CarPlay's standard Now Playing screen, which Spotify, Audible, podcast apps and most audio apps use, and on Apple Music's."
+        }
+      ]
+    },
+    {
+      "class": "DepictionStackView",
+      "tabname": "Notes",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "**After installing,** close Spotify and open it again once, so carLy can load into it. Until then Spotify songs use the other sources."
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "**Privacy.** No accounts, keys, analytics or telemetry. carLy only connects to the lyrics sources you leave on: Spotify's own lyrics service (through the Spotify app), Apple's (through the Music app), LRCLIB, and your custom address if you set one."
+        }
+      ]
+    },
+    {
+      "class": "DepictionStackView",
+      "tabname": "Changelog",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.0.0",
+          "useBoldText": true,
+          "useBottomMargin": true
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "useSpacing": true,
+          "useRawFormat": false,
+          "markdown": "First release.\n\n- Synced lyrics on CarPlay's own Now Playing screen: Side by Side, No Artwork, and full screen behind a microphone in the player's button row.\n- Spotify songs get Spotify's own lyrics through the Spotify app, Apple Music songs get Apple's through the Music app, everything else comes from LRCLIB or lyrics saved in your song files.\n- Settings with a live preview of every layout, fonts, colours, timing, and the apps that show lyrics, chosen from the ones installed."
+        }
+      ]
+    }
+  ]
+}

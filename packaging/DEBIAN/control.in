@@ -1,0 +1,28 @@
+Package: com.andi.carly
+Name: carLy
+Version: @VERSION@
+Architecture: iphoneos-arm64
+Maintainer: andi <tafilajandi@gmail.com>
+Author: andi
+Section: Tweaks
+Priority: optional
+Installed-Size: @ISIZE@
+Depends: mobilesubstrate, preferenceloader, firmware (>= 16.0)
+Conflicts: com.diffmusicplayer.carlyrics
+Replaces: com.diffmusicplayer.carlyrics
+Icon: https://raw.githubusercontent.com/@REPO@/main/assets/icon.png
+Native-Depiction: https://@PAGES@/depiction.json
+SileoDepiction: https://@PAGES@/depiction.json
+Tag: purpose::extension
+Description: Synced lyrics and a customizable Now Playing screen for CarPlay
+ Time-synced lyrics on CarPlay's own Now Playing screen, beside the player or
+ full screen behind a microphone button, for Spotify, Apple Music and other
+ audio apps.
+ .
+ Spotify songs get Spotify's own lyrics, fetched by the Spotify app with your
+ account. Apple Music songs get Apple's, fetched by the Music app. Everything
+ else comes from LRCLIB, a free community database, or lyrics saved in your own
+ song files. No API keys, no accounts to add, no telemetry.
+ .
+ Every layout choice is in Settings with a live preview: side by side, a player
+ without artwork, the lyrics on either side, fonts, colours and timing.

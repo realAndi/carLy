@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key><string>carLy</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>footerText</key><string>Shows time-synced lyrics on the CarPlay Now Playing screen. No account or API key is needed.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSSwitchCell</string>
+			<key>label</key><string>carLy</string>
+			<key>key</key><string>enabled</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><true/>
+			<key>PostNotification</key><string>com.andi.carly/prefsChanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Now Playing</string>
+			<key>footerText</key><string>Layout chooses where the lyrics go. Lyrics chooses how the text looks.</string>
+		</dict>
+		<dict>
+			<!-- Shows the committed layout's name; the value itself is picked on the Layout page
+			     (the cards). `get` normalises a legacy stored 1 to 4 so the row never shows blank. -->
+			<key>cell</key><string>PSLinkListCell</string>
+			<key>id</key><string>layout</string>
+			<key>label</key><string>Layout</string>
+			<key>key</key><string>lyricsMode</string>
+			<key>defaults</key><string>com.andi.carly</string>
+			<key>default</key><integer>4</integer>
+			<key>detail</key><string>CLLayoutListController</string>
+			<key>get</key><string>cl_layoutModeValue:</string>
+			<key>validTitles</key>
+			<array>
+				<string>Off</string>
+				<string>No Artwork</string>
+				<string>Side by Side</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>2</integer>
+				<integer>4</integer>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>lyrics</string>
+			<key>label</key><string>Lyrics</string>
+			<key>detail</key><string>CLLyricsListController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Lyrics</string>
+			<key>footerText</key><string>Lyrics are looked up when a song starts and kept on this iPhone for next time.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>sources</string>
+			<key>label</key><string>Sources</string>
+			<key>detail</key><string>CLSourcesListController</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>apps</string>
+			<key>label</key><string>Apps</string>
+			<key>detail</key><string>CLAppsListController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>label</key><string>Advanced</string>
+			<key>footerText</key><string>Clear the lyrics cache, back up settings or turn on logging when something is not working.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSLinkCell</string>
+			<key>id</key><string>maintenance</string>
+			<key>label</key><string>Maintenance</string>
+			<key>detail</key><string>CLMaintenanceListController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key><string>PSGroupCell</string>
+			<key>footerText</key><string>Only the song title, artist and length are sent to the lyrics sources you turn on. Nothing else leaves the phone.</string>
+		</dict>
+		<dict>
+			<key>cell</key><string>PSTitleValueCell</string>
+			<key>id</key><string>version</string>
+			<key>label</key><string>Version</string>
+			<key>get</key><string>cl_version:</string>
+		</dict>
+	</array>
+</dict>
+</plist>
